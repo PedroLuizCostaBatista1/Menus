@@ -1,0 +1,10 @@
+CREATE DATABASE vendas;
+USE vendas;
+
+CREATE TABLE produtos(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(200) NOT NULL,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
+    preco DECIMAL(10, 2) NOT NULL,
+    estoque INT NOT NULL
+);
