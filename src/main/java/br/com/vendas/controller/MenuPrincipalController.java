@@ -4,13 +4,10 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import br.com.vendas.Main;
+import br.com.vendas.utils.Alerta;
 
 public class MenuPrincipalController {
-    private Alert alert = new Alert(AlertType.INFORMATION);
-
     @FXML
     private Button botaoSair;
     
@@ -47,14 +44,13 @@ public class MenuPrincipalController {
 
     @FXML
     private void mensagemAjuda() throws IOException {
-        alert.setTitle("Ajuda do produto");
-        alert.setHeaderText(null);
-        alert.setContentText(
+        Alerta.mostrarAviso(
+            Alerta.AlertaTipo.INFORMACAO, 
+            "Informações do produto", 
             "Nome: Sistema de Vendas\n" +
             "Versão: 1.0.0\n" +
             "Desenvolvedor: Pedro Luiz\n" +
             "Ano: 2026"
         );
-        alert.showAndWait();
     }
 }

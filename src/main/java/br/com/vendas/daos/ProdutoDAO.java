@@ -25,15 +25,31 @@ public class ProdutoDAO {
         }
     }
 
-    public void cadastrar(Produto produto) {
+    public boolean cadastrar(Produto produto) {
         if (verificarCodigo(produto.getCodigo())) {
-            return;
+            return false;
         }
 
-        inserir(produto);
+        return inserir(produto);
     }
 
-    private void inserir(Produto produto) {
+    private boolean inserir(Produto produto) {
         String comando = "INSERT INTO produtos (nome, codigo, preco, estoque) VALUES (?, ?, ?, ?)";
+
+        try (
+            Connection conn = Conexao.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(comando);
+        ) {
+            stmt.setString(1, produto.getNome());
+            stmt.setString(2, produto.getCodigo());
+            stmt.setDouble(3, produto.getPreco());
+            stmt.setInt(4, produto.getQuantidade());
+
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }

@@ -8,3 +8,5 @@ CREATE TABLE produtos(
     preco DECIMAL(10, 2) NOT NULL,
     estoque INT NOT NULL
 );
+
+SELECT * FROM produtos;

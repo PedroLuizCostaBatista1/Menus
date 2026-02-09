@@ -19,7 +19,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-insets: 0; -fx-padding: 0px;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.vendas.controller.TelaVendaController">
    <content>
       <BorderPane style="-fx-background-color: #fafafa;">
@@ -55,7 +54,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/arrow.png" />
+                                    <Image url="@../images/arrow.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -195,7 +194,7 @@
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/add.png" />
+                                    <Image url="@../images/add.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -219,7 +218,7 @@
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Text>
-                  <TableView stylesheets="@style/table.css">
+                  <TableView stylesheets="@../style/table.css">
                      <columns>
                         <TableColumn prefWidth="-1.0" text="PRODUTO" />
                         <TableColumn prefWidth="-1.0" text="CÓDIGO" />

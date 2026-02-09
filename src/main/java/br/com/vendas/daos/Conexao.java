@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conexao {
-    private static final String url = "";
-    private static final String usuario = "root";
-    private static final String senha = "";
+    private static final String url = "jdbc:mysql://localhost:3306/vendas";
+    private static final String usuario = "pedro";
+    private static final String senha = "12345";
 
     public static Connection getConnection() {
         try {

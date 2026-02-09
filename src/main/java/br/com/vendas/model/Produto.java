@@ -1,11 +1,14 @@
 package br.com.vendas.model;
 
+import br.com.vendas.daos.ProdutoDAO;
+
 public class Produto {
     private int id;
     private String nome;
     private String codigo;
     private double preco;
     private int quantidade;
+    private ProdutoDAO produtoDAO = new ProdutoDAO();
     
     public Produto(String nome, String codigo, double preco, int quantidade) {
         this.nome = nome;
@@ -17,6 +20,14 @@ public class Produto {
     public Produto(int id, String nome, String codigo, double preco, int quantidade) {
         this(nome, codigo, preco, quantidade);
         this.id = id;
+    }
+
+    public void inserirProduto(Produto produto) {
+        if (produtoDAO.cadastrar(produto)) {
+            
+        } else {
+
+        }
     }
 
     public void setNome(String nome) {

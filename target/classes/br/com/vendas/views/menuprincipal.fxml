@@ -79,7 +79,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/person.png" />
+                                    <Image url="@../images/person.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -128,7 +128,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/box.png" />
+                                    <Image url="@../images/box.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -177,7 +177,7 @@
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/shopping-cart.png" />
+                                    <Image url="@../images/shopping-cart.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -223,7 +223,7 @@
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/bar-chart.png" />
+                                    <Image url="@../images/bar-chart.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -269,7 +269,7 @@
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/settings.png" />
+                                    <Image url="@../images/settings.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -315,7 +315,7 @@
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/question-mark.png" />
+                                    <Image url="@../images/question-mark.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -369,11 +369,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/exit.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
