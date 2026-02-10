@@ -22,12 +22,8 @@ public class Produto {
         this.id = id;
     }
 
-    public void inserirProduto(Produto produto) {
-        if (produtoDAO.cadastrar(produto)) {
-            
-        } else {
-
-        }
+    public boolean inserirProduto(Produto produto) {
+        return produtoDAO.cadastrar(produto);
     }
 
     public void setNome(String nome) {

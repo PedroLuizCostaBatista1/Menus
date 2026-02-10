@@ -44,13 +44,6 @@ public class MenuPrincipalController {
 
     @FXML
     private void mensagemAjuda() throws IOException {
-        Alerta.mostrarAviso(
-            Alerta.AlertaTipo.INFORMACAO, 
-            "Informações do produto", 
-            "Nome: Sistema de Vendas\n" +
-            "Versão: 1.0.0\n" +
-            "Desenvolvedor: Pedro Luiz\n" +
-            "Ano: 2026"
-        );
+        Alerta.mostrarAviso(Alerta.INFORMACAO_DO_PRODUTO);
     }
 }

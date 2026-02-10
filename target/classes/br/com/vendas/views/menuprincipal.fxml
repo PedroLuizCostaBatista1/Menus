@@ -369,7 +369,10 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/exit.png" />
+                           </image></ImageView>
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.vendas.model.Produto;
+import br.com.vendas.utils.Alerta;
 
 public class ProdutoDAO {
     private boolean verificarCodigo(String codigo) {
@@ -20,13 +21,14 @@ public class ProdutoDAO {
 
             return resultado.next();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alerta.mostrarAviso(Alerta.ERRO_VERIFICAR_CODIGO);
             return false;
         }
     }
 
     public boolean cadastrar(Produto produto) {
         if (verificarCodigo(produto.getCodigo())) {
+            Alerta.mostrarAviso(Alerta.ERRO_CODIGO_EXISTENTE);
             return false;
         }
 
@@ -48,7 +50,7 @@ public class ProdutoDAO {
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alerta.mostrarAviso(Alerta.ERRO_INSERIR_DADOS);
             return false;
         }
     }
