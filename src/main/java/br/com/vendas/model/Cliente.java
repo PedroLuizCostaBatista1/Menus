@@ -25,8 +25,8 @@ public class Cliente {
     }
 
     public boolean inserirCliente(Cliente cliente) {
-        if (cliente.getCPF().isEmpty()) {
-
+        if (cliente.nome.matches("\\s*") || cliente.cpf.matches("\\s*") || cliente.telefone.matches("\\s*") || cliente.email.matches("\\s*") || cliente.endereco.matches("\\s*")) {
+            return false;
         }
 
         return clienteDAO.cadastrar(cliente);

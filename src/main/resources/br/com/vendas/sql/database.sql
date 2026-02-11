@@ -29,4 +29,4 @@ CREATE TABLE vendas(
     FOREIGN KEY (fkIdProduto) REFERENCES produtos(id)
 );
 
-SELECT * FROM produtos;
+SELECT * FROM clientes;

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.vendas.model.Cliente;
 import br.com.vendas.utils.Alerta;
@@ -42,7 +44,12 @@ public class ClienteDAO {
             stmt.setString(1, email);
             ResultSet resultado = stmt.executeQuery();
 
-            return resultado.next();
+            if (resultado.next()) {
+                Alerta.mostrarAviso(Alerta.ERRO_EMAIL_EXISTENTE);
+                return true;
+            }
+
+            return false;
         } catch (SQLException e) {
             return false;
         }
@@ -53,6 +60,55 @@ public class ClienteDAO {
             return false;
         }
 
-        return true;
+        return inserir(cliente);
+    }
+
+    private boolean inserir(Cliente cliente) {
+        String comando = "INSERT INTO clientes (nome, cpf, telefone, email, endereco) VALUES (?, ?, ?, ?, ?)";
+
+        try (
+            Connection conn = Conexao.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(comando);
+        ) {
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getCPF());
+            stmt.setString(3, cliente.getTelefone());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getEndereco());
+
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            Alerta.mostrarAviso(Alerta.ERRO_INSERIR_DADOS);
+            return false;
+        }
+    }
+
+    public List<Cliente> listarClientes() {
+        List<Cliente> clientes = new ArrayList<>();
+        String comando = "SELECT * FROM clientes";
+
+        try (
+            Connection conn = Conexao.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(comando);
+            ResultSet resultado = stmt.executeQuery();
+        ) {
+            while (resultado.next()) {
+                Cliente cliente = new Cliente(
+                    resultado.getInt("id"),
+                    resultado.getString("nome"),
+                    resultado.getString("cpf"),
+                    resultado.getString("telefone"),
+                    resultado.getString("email"),
+                    resultado.getString("endereco")
+                );
+
+                clientes.add(cliente);
+            }
+
+            return clientes;
+        } catch (SQLException e) {
+            return null;
+        }
     }
 }

@@ -82,6 +82,7 @@
                   </Text>
                   <TableView fx:id="tabelaClientes" stylesheets="@../style/table.css">
                      <columns>
+                        <TableColumn fx:id="colId" prefWidth="-1.0" text="ID" />
                         <TableColumn fx:id="colNome" prefWidth="-1.0" text="NOME" />
                         <TableColumn fx:id="colCPF" prefWidth="-1.0" text="CPF" />
                         <TableColumn fx:id="colTelefone" prefWidth="-1.0" text="TELEFONE" />
