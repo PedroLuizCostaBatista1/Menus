@@ -1,14 +1,12 @@
-package br.com.vendas.daos;
+package br.com.vendas.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import br.com.vendas.utils.Alerta;
-
 public class Conexao {
     private static final String url = "jdbc:mysql://localhost:3306/vendas";
-    private static final String usuario = "pedro";
-    private static final String senha = "12345";
+    private static final String usuario = "root";
+    private static final String senha = "";
 
     public static Connection getConnection() {
         try {

@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.vendas.model.Produto;
 import br.com.vendas.utils.Alerta;
+import br.com.vendas.utils.Conexao;
 
 public class ProdutoDAO {
     private boolean verificarCodigo(String codigo) {
@@ -52,6 +55,32 @@ public class ProdutoDAO {
         } catch (SQLException e) {
             Alerta.mostrarAviso(Alerta.ERRO_INSERIR_DADOS);
             return false;
+        }
+    }
+
+    public List<Produto> listarProdutos() {
+        List<Produto> produtos = new ArrayList<>();
+        String comando = "SELECT * FROM produtos";
+
+        try (
+            Connection conn = Conexao.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(comando);
+            ResultSet resultado = stmt.executeQuery();
+        ) {
+            while (resultado.next()) {
+                Produto produto = new Produto(
+                    resultado.getInt("id"),
+                    resultado.getString("nome"),
+                    resultado.getString("codigo"),
+                    resultado.getDouble("preco"),
+                    resultado.getInt("estoque")
+                );
+                produtos.add(produto);
+            }
+
+            return produtos;
+        } catch (SQLException e) {
+            return null;
         }
     }
 }
