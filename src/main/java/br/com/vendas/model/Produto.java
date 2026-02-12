@@ -61,4 +61,9 @@ public class Produto {
     public int getQuantidade() {
         return this.quantidade;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

@@ -75,4 +75,9 @@ public class Cliente {
     public String getEndereco() {
         return this.endereco;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

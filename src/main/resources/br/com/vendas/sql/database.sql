@@ -29,4 +29,4 @@ CREATE TABLE vendas(
     FOREIGN KEY (fkIdProduto) REFERENCES produtos(id)
 );
 
-SELECT * FROM clientes;
+SELECT vendas.id, clientes.nome AS nomeCliente, produtos.nome AS nomeProdutos, quantidade, valor FROM vendas JOIN clientes ON fkIdCliente = clientes.id JOIN produtos ON fkIdProduto = produtos.id;
